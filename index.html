@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thummula Saiharshith | Java Full Stack Developer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --bg-deep: #050811;
+      --bg-card: rgba(10, 18, 30, 0.85);
+      --bg-card-hover: rgba(15, 27, 45, 0.95);
+      --aurora-green: #10b981;
+      --aurora-cyan: #06b6d4;
+      --aurora-indigo: #6366f1;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-deep);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.12) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+        radial-gradient(at 50% 50%, rgba(6, 182, 212, 0.08) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(139, 92, 246, 0.12) 0px, transparent 50%);
+      background-attachment: fixed;
+      color: var(--text-main);
+      font-family: var(--font);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(5, 8, 17, 0.95);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid var(--glass-border);
+      z-index: 1000;
+    }
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 800;
+      text-decoration: none;
+      color: #fff;
+    }
+    .logo span {
+      color: var(--aurora-green);
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+      align-items: center;
+    }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover {
+      color: #fff;
+    }
+    .btn-resume-nav {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--aurora-green) !important;
+      border: 1px solid var(--aurora-green);
+      padding: 6px 14px;
+      border-radius: 20px;
+    }
+
+    /* Hero */
+    .hero-section {
+      padding: 140px 0 70px;
+      text-align: center;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--aurora-green);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .hero-content h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #ffffff 0%, #6ee7b7 50%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .role-roller-card {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(10, 18, 30, 0.7);
+      border: 1px solid var(--glass-border);
+      border-radius: 30px;
+      padding: 6px 20px;
+      margin-bottom: 20px;
+    }
+    .role-prefix {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .role-roller-viewport {
+      height: 28px;
+      overflow: hidden;
+    }
+    .role-track {
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .role-item {
+      height: 28px;
+      line-height: 28px;
+      font-weight: 700;
+      color: var(--aurora-cyan);
+    }
+    .description {
+      max-width: 600px;
+      margin: 0 auto 28px;
+      color: var(--text-muted);
+    }
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+    .btn-primary {
+      background: var(--aurora-green);
+      color: #050811;
+    }
+    .btn-secondary {
+      background: var(--bg-card);
+      color: var(--text-main);
+      border: 1px solid var(--glass-border);
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Sections */
+    .section {
+      padding: 70px 0;
+    }
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-left: 4px solid var(--aurora-green);
+      padding-left: 12px;
+    }
+    .section-title i {
+      color: var(--aurora-cyan);
+    }
+    .center-title {
+      border-left: none;
+      padding-left: 0;
+      justify-content: center;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .skill-card i.icon {
+      font-size: 1.6rem;
+      color: var(--aurora-cyan);
+      margin-bottom: 10px;
+    }
+    .skill-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tags span {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--glass-border);
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .project-header h3 {
+      font-size: 1.25rem;
+    }
+    .project-tagline {
+      font-size: 0.82rem;
+      color: var(--aurora-cyan);
+      display: block;
+      margin-bottom: 8px;
+    }
+    .project-desc {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+    }
+    .project-links {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid var(--glass-border);
+    }
+    .btn-project {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--glass-border);
+    }
+    .btn-project-primary {
+      color: var(--aurora-green);
+      border-color: var(--aurora-green);
+    }
+
+    /* Timeline & Grid */
+    .timeline-card h3 {
+      font-size: 1.15rem;
+    }
+    .company-name {
+      color: var(--aurora-green);
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .date-badge {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .timeline-bullets {
+      padding-left: 20px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 8px;
+    }
+    .two-col-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .cert-list {
+      list-style: none;
+    }
+    .cert-list li {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    .cert-list i {
+      color: var(--aurora-cyan);
+    }
+
+    /* About Section */
+    .about-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+    .about-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .about-highlights div {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-main);
+      font-size: 0.9rem;
+    }
+    .about-highlights i {
+      color: var(--aurora-green);
+    }
+
+    /* --- CONTACT SECTION FIX --- */
+    #contact {
+      display: block !important;
+      width: 100% !important;
+      margin-bottom: 40px;
+    }
+    .contact-desc {
+      color: var(--text-muted);
+      text-align: center;
+      margin-bottom: 24px;
+      font-size: 0.95rem;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 20px;
+      width: 100%;
+    }
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+    .info-item i {
+      font-size: 1.2rem;
+      color: var(--aurora-green);
+    }
+    .info-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+    .info-item a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .form-group {
+      margin-bottom: 12px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      margin-bottom: 4px;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--glass-border);
+      padding: 10px 12px;
+      border-radius: 6px;
+      color: #fff;
+      font-size: 0.9rem;
+      outline: none;
+    }
+    .form-btn {
+      width: 100%;
+      justify-content: center;
+      border: none;
+      cursor: pointer;
+      padding: 12px;
+    }
+
+    /* Footer */
+    footer {
+      padding: 24px 20px;
+      border-top: 1px solid var(--glass-border);
+      background: rgba(5, 8, 17, 0.9);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+    .footer-socials {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 8px;
+    }
+    .footer-socials a {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content h1 { font-size: 2.2rem; }
+      .two-col-grid, .contact-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">Saiharshith<span>.dev</span></a>
+      <ul class="nav-links">
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#about">About</a></li>
+        <li>
+          <a href="Thummula_Saiharshith_Resume.pdf" target="_blank" class="btn-resume-nav">
+            <i class="fas fa-file-pdf"></i> Resume
+          </a>
+        </li>
+        <li><a href="#contact" class="btn btn-primary" style="padding: 6px 14px;">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section">
+    <div class="container hero-content">
+      <span class="badge">Available for Software Engineering Roles</span>
+      <h1>Hi, I'm <span class="gradient-text">Thummula Saiharshith</span></h1>
+      
+      <div class="role-roller-card">
+        <span class="role-prefix">Specialized in</span>
+        <div class="role-roller-viewport">
+          <div id="role-track" class="role-track">
+            <span class="role-item">Java Full Stack Development</span>
+            <span class="role-item">Modern React.js & Node.js</span>
+            <span class="role-item">Scalable REST API Architecture</span>
+            <span class="role-item">AI Web Engineering</span>
+          </div>
+        </div>
+      </div>
+      
+      <p class="description">
+        Dedicated Java Full Stack Developer based in Chennai, crafting high-performance web applications, secure REST APIs, and efficient database architectures[cite: 1].
+      </p>
+      
+      <div class="hero-buttons">
+        <a href="Thummula_Saiharshith_Resume.pdf" download="Thummula_Saiharshith_Resume.pdf" class="btn btn-primary">
+          <i class="fas fa-download"></i> Download Resume
+        </a>
+        <a href="https://github.com/saiharshith249" target="_blank" class="btn btn-secondary">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+        <a href="https://linkedin.com/in/sai-harshith-thummula" target="_blank" class="btn btn-secondary">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section">
+    <div class="container">
+      <h2 class="section-title"><i class="fas fa-layer-group"></i> Technical Stack</h2>
+      <div class="skills-grid">
+        <div class="card skill-card">
+          <i class="fas fa-code icon"></i>
+          <h3>Languages</h3>
+          <p class="skill-sub">Core Programming</p>
+          <div class="tags">
+            <span>Java</span><span>JavaScript</span><span>Python</span><span>SQL</span>
+          </div>
+        </div>
+        <div class="card skill-card">
+          <i class="fas fa-laptop-code icon"></i>
+          <h3>Frontend Development</h3>
+          <p class="skill-sub">UI & Web Styling</p>
+          <div class="tags">
+            <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>React.js</span>
+          </div>
+        </div>
+        <div class="card skill-card">
+          <i class="fas fa-server icon"></i>
+          <h3>Backend & APIs</h3>
+          <p class="skill-sub">Server-Side & Routing</p>
+          <div class="tags">
+            <span>Node.js</span><span>Express.js</span><span>REST APIs</span>
+          </div>
+        </div>
+        <div class="card skill-card">
+          <i class="fas fa-database icon"></i>
+          <h3>Databases & Tools</h3>
+          <p class="skill-sub">Storage & Version Control</p>
+          <div class="tags">
+            <span>MongoDB</span><span>PostgreSQL</span><span>SQL</span><span>GitHub</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title"><i class="fas fa-diagram-project"></i> Featured Projects</h2>
+      <div class="projects-grid">
+        <div class="card">
+          <div class="project-header">
+            <h3>Hiredesk</h3>
+            <span class="project-tagline">Job Portal Platform</span>
+          </div>
+          <p class="project-desc">Full-stack web portal streamlining job listings, candidate submissions, and backend integrations[cite: 1].</p>
+          <div class="tags">
+            <span>React.js</span><span>Node.js</span><span>Express.js</span><span>MongoDB</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/saiharshith249" target="_blank" class="btn-project">Code</a>
+            <a href="https://github.com/saiharshith249" target="_blank" class="btn-project btn-project-primary">Live Demo</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="project-header">
+            <h3>Study Forge</h3>
+            <span class="project-tagline">Educational Web Portal</span>
+          </div>
+          <p class="project-desc">Web portal built to dynamically showcase various institutional courses and syllabi[cite: 1].</p>
+          <div class="tags">
+            <span>React.js</span><span>JavaScript</span><span>REST APIs</span><span>CSS3</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/saiharshith249" target="_blank" class="btn-project">Code</a>
+            <a href="https://github.com/saiharshith249" target="_blank" class="btn-project btn-project-primary">Live Demo</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="project-header">
+            <h3>FlowSync</h3>
+            <span class="project-tagline">Task & Project Management</span>
+          </div>
+          <p class="project-desc">Productivity web portal focused on scheduling and organizing tasks efficiently[cite: 1].</p>
+          <div class="tags">
+            <span>Full Stack</span><span>Node.js</span><span>Express.js</span><span>PostgreSQL</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/saiharshith249" target="_blank" class="btn-project">Code</a>
+            <a href="https://github.com/saiharshith249" target="_blank" class="btn-project btn-project-primary">Live Demo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="section">
+    <div class="container">
+      <h2 class="section-title"><i class="fas fa-briefcase"></i> Professional Experience</h2>
+      <div class="card timeline-card">
+        <h3>Full Stack Intern — <span class="company-name">NeoSkillZ</span></h3>
+        <p class="date-badge">June 10, 2026 – Present</p>
+        <ul class="timeline-bullets">
+          <li>Developed full-stack web applications, secure auth modules, and REST APIs[cite: 1].</li>
+          <li>Optimized database operations and queries for application performance[cite: 1].</li>
+        </ul>
+      </div>
+      <div class="card timeline-card">
+        <h3>AI Web Developer Intern — <span class="company-name">InAmigos Foundation</span></h3>
+        <p class="date-badge">July 10, 2026 – July 28, 2026</p>
+        <ul class="timeline-bullets">
+          <li>Built responsive user interfaces and connected frontend views to backend APIs[cite: 1].</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education & Certifications -->
+  <section id="education" class="section">
+    <div class="container two-col-grid">
+      <div class="card">
+        <h2 class="section-title" style="margin-bottom: 16px;"><i class="fas fa-graduation-cap"></i> Education</h2>
+        <h3>B.Tech in Computer Science & Engineering</h3>
+        <p class="company-name">Bharath Institute of Higher Education and Research</p>
+        <p class="date-badge" style="margin-top: 6px;">CGPA: 7.1/10 • Expected June 2027 • Chennai, TN</p>
+      </div>
+      <div class="card">
+        <h2 class="section-title" style="margin-bottom: 16px;"><i class="fas fa-certificate"></i> Certifications</h2>
+        <ul class="cert-list">
+          <li><i class="fas fa-award"></i> MERN Stack Course Completion Certification (Unstop)</li>
+          <li><i class="fas fa-award"></i> Be10x Workshop on AI Certification</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Me Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title"><i class="fas fa-user-tie"></i> About Me</h2>
+      <div class="card about-card">
+        <p>
+          Dedicated and results-driven Java Full Stack Developer with hands-on experience in building responsive web applications using Java, JavaScript, Python, React.js, Node.js, Express.js, MongoDB, and SQL[cite: 1].
+        </p>
+        <div class="about-highlights">
+          <div><i class="fas fa-check-circle"></i> Solid foundation in Java Full Stack & REST Architecture[cite: 1]</div>
+          <div><i class="fas fa-check-circle"></i> Practical experience building production-ready projects & APIs[cite: 1]</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section-title center-title"><i class="fas fa-envelope-open-text"></i> Get In Touch</h2>
+      <p class="contact-desc">
+        I am actively seeking software engineering and full-stack developer roles[cite: 1]. Feel free to message me directly.
+      </p>
+
+      <div class="contact-grid">
+        <!-- Contact Info Card -->
+        <div class="card">
+          <h3 style="margin-bottom: 16px;">Contact Details</h3>
+          <div class="info-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <p class="info-label">Email</p>
+              <a href="mailto:saiharshith249@gmail.com">saiharshith249@gmail.com</a>
+            </div>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-phone"></i>
+            <div>
+              <p class="info-label">Phone</p>
+              <a href="tel:+919676761759">+91 9676761759</a>
+            </div>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+              <p class="info-label">Location</p>
+              <span style="font-size: 0.9rem; color: #fff;">Chennai, Tamil Nadu, India</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form Card -->
+        <div class="card">
+          <form onsubmit="sendMail(event)">
+            <div class="form-group">
+              <label for="c-name">Your Name</label>
+              <input type="text" id="c-name" placeholder="e.g. Alex Smith" required />
+            </div>
+            <div class="form-group">
+              <label for="c-sub">Subject</label>
+              <input type="text" id="c-sub" placeholder="e.g. Job Opportunity" required />
+            </div>
+            <div class="form-group">
+              <label for="c-msg">Message</label>
+              <textarea id="c-msg" rows="3" placeholder="Hello Saiharshith..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-btn">
+              <i class="fas fa-paper-plane"></i> Send Email
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Thummula Saiharshith. All rights reserved.</p>
+    <div class="footer-socials">
+      <a href="https://github.com/saiharshith249" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com/in/sai-harshith-thummula" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:saiharshith249@gmail.com"><i class="fas fa-envelope"></i></a>
+    </div>
+  </footer>
+
+  <script>
+    // Vertical text carousel
+    const track = document.getElementById("role-track");
+    let index = 0;
+    if (track) {
+      setInterval(() => {
+        index = (index + 1) % 4;
+        track.style.transform = `translateY(-${index * 28}px)`;
+      }, 2500);
+    }
+
+    // Direct email handler
+    function sendMail(e) {
+      e.preventDefault();
+      const name = document.getElementById('c-name').value;
+      const sub = document.getElementById('c-sub').value;
+      const msg = document.getElementById('c-msg').value;
+      const body = `Hi Saiharshith,%0D%0A%0D%0AMy name is ${encodeURIComponent(name)}.%0D%0A%0D%0A${encodeURIComponent(msg)}`;
+      window.location.href = `mailto:saiharshith249@gmail.com?subject=${encodeURIComponent(sub)}&body=${body}`;
+    }
+  </script>
+</body>
+</html>
