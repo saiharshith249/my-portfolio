@@ -50,7 +50,7 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(5, 8, 17, 0.95);
+      background: rgba(5, 8, 17, 0.92);
       backdrop-filter: blur(15px);
       border-bottom: 1px solid var(--glass-border);
       z-index: 1000;
@@ -58,7 +58,7 @@
     .nav-container {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 16px 20px;
+      padding: 14px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -81,20 +81,51 @@
     .nav-links a {
       color: var(--text-muted);
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.92rem;
+      font-weight: 500;
       transition: color 0.3s;
     }
     .nav-links a:hover {
       color: #fff;
     }
-    .btn-resume-nav {
+
+    /* Navbar Interactive Buttons */
+    .nav-btn-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-btn {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 7px;
+      padding: 7px 18px !important;
+      border-radius: 999px !important;
+      font-size: 0.85rem !important;
+      font-weight: 700 !important;
+      text-decoration: none !important;
+      cursor: pointer;
+      transition: all 0.25s ease-in-out;
+    }
+    .nav-btn-outline {
       color: var(--aurora-green) !important;
+      background: rgba(16, 185, 129, 0.08);
       border: 1px solid var(--aurora-green);
-      padding: 6px 14px;
-      border-radius: 20px;
+    }
+    .nav-btn-outline:hover {
+      background: rgba(16, 185, 129, 0.2);
+      box-shadow: 0 0 14px rgba(16, 185, 129, 0.35);
+      transform: translateY(-2px);
+    }
+    .nav-btn-solid {
+      background: linear-gradient(135deg, var(--aurora-green), var(--aurora-cyan)) !important;
+      color: #050811 !important;
+      border: 1px solid transparent;
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+    }
+    .nav-btn-solid:hover {
+      box-shadow: 0 0 18px rgba(16, 185, 129, 0.6);
+      transform: translateY(-2px);
     }
 
     /* Hero */
@@ -288,7 +319,7 @@
       border-color: var(--aurora-green);
     }
 
-    /* Timeline & Grid */
+    /* Experience */
     .timeline-card h3 {
       font-size: 1.15rem;
     }
@@ -349,7 +380,7 @@
       color: var(--aurora-green);
     }
 
-    /* --- CONTACT SECTION FIX --- */
+    /* Contact Section */
     #contact {
       display: block !important;
       width: 100% !important;
@@ -453,12 +484,14 @@
         <li><a href="#experience">Experience</a></li>
         <li><a href="#education">Education</a></li>
         <li><a href="#about">About</a></li>
-        <li>
-          <a href="Thummula_Saiharshith_Resume.pdf" target="_blank" class="btn-resume-nav">
+        <li class="nav-btn-group">
+          <a href="Thummula_Saiharshith_Resume.pdf" target="_blank" class="nav-btn nav-btn-outline">
             <i class="fas fa-file-pdf"></i> Resume
           </a>
+          <a href="#contact" class="nav-btn nav-btn-solid">
+            <i class="fas fa-paper-plane"></i> Contact
+          </a>
         </li>
-        <li><a href="#contact" class="btn btn-primary" style="padding: 6px 14px;">Contact</a></li>
       </ul>
     </div>
   </nav>
@@ -482,7 +515,7 @@
       </div>
       
       <p class="description">
-        Dedicated Java Full Stack Developer based in Chennai, crafting high-performance web applications, secure REST APIs, and efficient database architectures[cite: 1].
+        Dedicated Java Full Stack Developer based in Chennai, crafting high-performance web applications, secure REST APIs, and efficient database architectures.
       </p>
       
       <div class="hero-buttons">
@@ -550,7 +583,7 @@
             <h3>Hiredesk</h3>
             <span class="project-tagline">Job Portal Platform</span>
           </div>
-          <p class="project-desc">Full-stack web portal streamlining job listings, candidate submissions, and backend integrations[cite: 1].</p>
+          <p class="project-desc">Full-stack web portal streamlining job listings, candidate submissions, and backend integrations.</p>
           <div class="tags">
             <span>React.js</span><span>Node.js</span><span>Express.js</span><span>MongoDB</span>
           </div>
@@ -565,7 +598,7 @@
             <h3>Study Forge</h3>
             <span class="project-tagline">Educational Web Portal</span>
           </div>
-          <p class="project-desc">Web portal built to dynamically showcase various institutional courses and syllabi[cite: 1].</p>
+          <p class="project-desc">Web portal built to dynamically showcase various institutional courses and syllabi.</p>
           <div class="tags">
             <span>React.js</span><span>JavaScript</span><span>REST APIs</span><span>CSS3</span>
           </div>
@@ -580,7 +613,7 @@
             <h3>FlowSync</h3>
             <span class="project-tagline">Task & Project Management</span>
           </div>
-          <p class="project-desc">Productivity web portal focused on scheduling and organizing tasks efficiently[cite: 1].</p>
+          <p class="project-desc">Productivity web portal focused on scheduling and organizing tasks efficiently.</p>
           <div class="tags">
             <span>Full Stack</span><span>Node.js</span><span>Express.js</span><span>PostgreSQL</span>
           </div>
@@ -601,15 +634,15 @@
         <h3>Full Stack Intern — <span class="company-name">NeoSkillZ</span></h3>
         <p class="date-badge">June 10, 2026 – Present</p>
         <ul class="timeline-bullets">
-          <li>Developed full-stack web applications, secure auth modules, and REST APIs[cite: 1].</li>
-          <li>Optimized database operations and queries for application performance[cite: 1].</li>
+          <li>Developed full-stack web applications, secure auth modules, and REST APIs.</li>
+          <li>Optimized database operations and queries for application performance.</li>
         </ul>
       </div>
       <div class="card timeline-card">
         <h3>AI Web Developer Intern — <span class="company-name">InAmigos Foundation</span></h3>
         <p class="date-badge">July 10, 2026 – July 28, 2026</p>
         <ul class="timeline-bullets">
-          <li>Built responsive user interfaces and connected frontend views to backend APIs[cite: 1].</li>
+          <li>Built responsive user interfaces and connected frontend views to backend APIs.</li>
         </ul>
       </div>
     </div>
@@ -640,11 +673,11 @@
       <h2 class="section-title"><i class="fas fa-user-tie"></i> About Me</h2>
       <div class="card about-card">
         <p>
-          Dedicated and results-driven Java Full Stack Developer with hands-on experience in building responsive web applications using Java, JavaScript, Python, React.js, Node.js, Express.js, MongoDB, and SQL[cite: 1].
+          Dedicated and results-driven Java Full Stack Developer with hands-on experience in building responsive web applications using Java, JavaScript, Python, React.js, Node.js, Express.js, MongoDB, and SQL.
         </p>
         <div class="about-highlights">
-          <div><i class="fas fa-check-circle"></i> Solid foundation in Java Full Stack & REST Architecture[cite: 1]</div>
-          <div><i class="fas fa-check-circle"></i> Practical experience building production-ready projects & APIs[cite: 1]</div>
+          <div><i class="fas fa-check-circle"></i> Solid foundation in Java Full Stack & REST Architecture</div>
+          <div><i class="fas fa-check-circle"></i> Practical experience building production-ready projects & APIs</div>
         </div>
       </div>
     </div>
@@ -655,7 +688,7 @@
     <div class="container">
       <h2 class="section-title center-title"><i class="fas fa-envelope-open-text"></i> Get In Touch</h2>
       <p class="contact-desc">
-        I am actively seeking software engineering and full-stack developer roles[cite: 1]. Feel free to message me directly.
+        I am actively seeking software engineering and full-stack developer roles. Feel free to message me directly.
       </p>
 
       <div class="contact-grid">
@@ -673,7 +706,7 @@
             <i class="fas fa-phone"></i>
             <div>
               <p class="info-label">Phone</p>
-              <a href="tel:+919676761759">+91 967676XXXX</a>
+              <a href="tel:+91967676XXXX">+91 967676XXXX</a>
             </div>
           </div>
           <div class="info-item">
