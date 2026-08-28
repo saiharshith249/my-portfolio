@@ -152,8 +152,8 @@ body {
 /* Resume: Outline Pill */
 .btn-resume-nav {
   color: var(--aurora-green) !important;
-  background: rgba(16, 185, 129, 0.08);
-  border: 1px solid rgba(16, 185, 129, 0.4);
+  background: rgba(9, 48, 35, 0.08);
+  border: 1px solid rgba(26, 38, 34, 0.4);
 }
 
 .btn-resume-nav:hover {
