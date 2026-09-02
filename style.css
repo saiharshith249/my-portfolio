@@ -162,7 +162,7 @@ body {
   color: #f8fafc !important;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
+  backdrop-filter: green(10px);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -177,14 +177,14 @@ body {
 /* Contact: Gradient Filled Pill */
 .btn-nav {
   background: linear-gradient(135deg, var(--aurora-green), var(--aurora-cyan)) !important;
-  color: #050811 !important;
+  color: #072270 !important;
   border: 1px solid transparent;
 }
 
 .btn-nav:hover {
   transform: translateY(-2px);
   box-shadow: 0 0 16px rgba(16, 185, 129, 0.5);
-  color: #050811 !important;
+  color: #0f3bbe !important;
 }
 
 /* Hero Section */
@@ -199,7 +199,7 @@ body {
   align-items: center;
   gap: 8px;
   background: rgba(16, 185, 129, 0.08);
-  color: #34d399;
+  color: #022a1b;
   border: 1px solid rgba(16, 185, 129, 0.25);
   padding: 6px 18px;
   border-radius: 999px;
