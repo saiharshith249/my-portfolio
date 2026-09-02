@@ -186,12 +186,6 @@ body {
   box-shadow: 0 0 16px rgba(16, 185, 129, 0.5);
   color: #050811 !important;
 }
-.btn-resume-nav:hover {
-  background: linear-gradient(135deg, var(--aurora-green), var(--aurora-cyan)) !important;
-  color: #050811 !important;
-  box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
-  transform: translateY(-2px);
-}
 
 /* Hero Section */
 .hero-section {
